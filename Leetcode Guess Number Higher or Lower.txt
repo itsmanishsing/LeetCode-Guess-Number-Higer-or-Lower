@@ -1,0 +1,88 @@
+/** 
+ * Forward declaration of guess API.
+ * @param  num   your guess
+ * @return 	     -1 if num is higher than the picked number
+ *			      1 if num is lower than the picked number
+ *               otherwise return 0
+ * int guess(int num);
+ */
+
+class Solution {
+public:
+    int guessNumber(int n) {
+        
+        int l =1;
+        int h = n;
+        
+        while(l<=h)
+        {
+            
+            int mid = l+(h-l)/2;
+            
+            if(guess(mid)==0)
+            {
+                return mid;
+            }
+            else if(guess(mid)==-1)
+            {
+                h=mid-1;
+            }
+            else
+            {
+                l=mid+1;
+            }
+    
+            
+        }    
+        return -1;
+        
+        
+        
+    }
+};
+
+
+Complexity Analysis
+
+Time complexity : O\big(\log_2 n\big)O(log 
+2
+​
+ n). Binary Search is used.
+Space complexity : O(1)O(1). No extra space is used.
+
+
+
+
+
+
+
+///////////////////////////////////
+
+
+
+/* The guess API is defined in the parent class GuessGame.
+   @param num, your guess
+   @return -1 if my number is lower, 1 if my number is higher, otherwise return 0
+      int guess(int num); */
+
+public class Solution extends GuessGame {
+    public int guessNumber(int n) {
+        for (int i = 1; i < n; i++)
+            if (guess(i) == 0)
+                return i;
+        return n;
+    }
+};
+
+
+Complexity Analysis
+
+Time complexity : O(n)O(n). We scan all the numbers from 1 to n.
+Space complexity : O(1)O(1). No extra space is used.
+
+
+
+
+
+
+
